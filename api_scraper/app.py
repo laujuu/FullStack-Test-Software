@@ -7,6 +7,7 @@ from scraper import  (
     search_all, 
     )
 
+
 app = Flask(__name__)
 
 
@@ -24,11 +25,13 @@ def search_mercadolivre_keyword():
     results = search_mercadolivre_by_keyword(category, keyword)
     return jsonify(results)
 
+
 @app.route('/search_buscape_by_category', methods=['GET'])
 def get_buscape_products_by_category():
     category = request.args.get('category')
     results = search_buscape_by_category(category)
     return jsonify(results)
+
 
 @app.route('/search_buscape_by_keyword', methods=['GET'])
 def get_search_buscape_by_keyword():

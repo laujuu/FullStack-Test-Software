@@ -24,6 +24,7 @@ def search_mercadolivre_by_category(category):
         })
     return results
 
+
 def search_mercadolivre_by_keyword(category, keyword):
     url = f"https://lista.mercadolivre.com.br/{category}/{keyword}"
     response = requests.get(url)
@@ -76,6 +77,7 @@ def search_buscape_by_category(category):
         })
 
     return results
+
 
 def search_buscape_by_keyword(category, keyword):
     url = f"https://www.buscape.com.br/{category}/{keyword}"
