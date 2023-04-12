@@ -1,4 +1,4 @@
-from WebScraper.scraper import  (
+from api_scraper.scraper import  (
     search_mercadolivre_by_category, 
     search_buscape_by_category, 
     search_mercadolivre_by_keyword, 
