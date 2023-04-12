@@ -105,3 +105,30 @@ def search_buscape_by_keyword(category, keyword):
         })
 
     return results
+
+
+def search_all(category, keyword=None):
+    # Busca no Mercado Livre por categoria
+    mercadolivre_category_results = search_mercadolivre_by_category(category)
+
+    # Busca no Mercado Livre por palavra-chave, se especificada
+    if keyword:
+        mercadolivre_keyword_results = search_mercadolivre_by_keyword(category, keyword)
+        mercadolivre_results = mercadolivre_category_results + mercadolivre_keyword_results
+    else:
+        mercadolivre_results = mercadolivre_category_results
+
+    # Busca no Buscapé por categoria
+    buscape_category_results = search_buscape_by_category(category)
+
+    # Busca no Buscapé por palavra-chave, se especificada
+    if keyword:
+        buscape_keyword_results = search_buscape_by_keyword(category, keyword)
+        buscape_results = buscape_category_results + buscape_keyword_results
+    else:
+        buscape_results = buscape_category_results
+
+    # Combina os resultados das buscas no Mercado Livre e no Buscapé
+    results = mercadolivre_results + buscape_results
+
+    return results
