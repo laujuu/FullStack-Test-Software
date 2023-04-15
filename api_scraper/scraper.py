@@ -9,8 +9,10 @@ def search_mercadolivre_by_category(category):
     products = soup.find_all("li", {"class": "ui-search-layout__item"})
     results = []
     for product in products:
-        title = product.find("h2", {"class": "ui-search-item__title"}).text.strip()
-        price = product.find("span", {"class": "price-tag-fraction"}).text.strip()
+        title = product.find(
+            "h2", {"class": "ui-search-item__title"}).text.strip()
+        price = product.find(
+            "span", {"class": "price-tag-fraction"}).text.strip()
         link = product.find("a", {"class": "ui-search-link"})['href']
         image = product.find("img")['src']
         results.append({
@@ -32,8 +34,10 @@ def search_mercadolivre_by_keyword(category, keyword):
     products = soup.find_all("li", {"class": "ui-search-layout__item"})
     results = []
     for product in products:
-        title = product.find("h2", {"class": "ui-search-item__title"}).text.strip()
-        price = product.find("span", {"class": "price-tag-fraction"}).text.strip()
+        title = product.find(
+            "h2", {"class": "ui-search-item__title"}).text.strip()
+        price = product.find(
+            "span", {"class": "price-tag-fraction"}).text.strip()
         link = product.find("a", {"class": "ui-search-link"})['href']
         image = product.find("img")['src']
         results.append({
@@ -63,7 +67,8 @@ def search_buscape_by_category(category):
         # obter informações do produto
         title = product.find("h2", {"class": "Text_Text__h_AF6"}).text.strip()
         price = product.find("p", {"class": "Text_Text__h_AF6"}).text.strip()
-        link = product.find("a", {"class": "SearchCard_ProductCard_Inner__7JhKb"})['href']
+        link = product.find(
+            "a", {"class": "SearchCard_ProductCard_Inner__7JhKb"})['href']
         image = product.find("img")['src']
 
         results.append({
@@ -93,7 +98,8 @@ def search_buscape_by_keyword(category, keyword):
         # obter informações do produto
         title = product.find("h2", {"class": "Text_Text__h_AF6"}).text.strip()
         price = product.find("p", {"class": "Text_Text__h_AF6"}).text.strip()
-        link = product.find("a", {"class": "SearchCard_ProductCard_Inner__7JhKb"})['href']
+        link = product.find(
+            "a", {"class": "SearchCard_ProductCard_Inner__7JhKb"})['href']
         image = product.find("img")['src']
 
         results.append({
@@ -115,8 +121,10 @@ def search_all(category, keyword=None):
 
     # Busca no Mercado Livre por palavra-chave, se especificada
     if keyword:
-        mercadolivre_keyword_results = search_mercadolivre_by_keyword(category, keyword)
-        mercadolivre_results = mercadolivre_category_results + mercadolivre_keyword_results
+        mercadolivre_keyword_results = \
+            search_mercadolivre_by_keyword(category, keyword)
+        mercadolivre_results = \
+            mercadolivre_category_results + mercadolivre_keyword_results
     else:
         mercadolivre_results = mercadolivre_category_results
 

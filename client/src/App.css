@@ -19,6 +19,7 @@ body {
 
 .SearchCard {
   display: flex;
+  justify-content: center;
 }
 
 button {
@@ -31,3 +32,12 @@ button {
   color: #888;
 }
 
+.inpSearch {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10svh;
+}
+
+input[type=text]{
+  width: 39svh;
+}

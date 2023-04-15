@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request
-from scraper import  (
-    search_mercadolivre_by_category, 
-    search_buscape_by_category, 
-    search_mercadolivre_by_keyword, 
-    search_buscape_by_keyword, 
-    search_all, 
+from scraper import (
+    search_mercadolivre_by_category,
+    search_buscape_by_category,
+    search_mercadolivre_by_keyword,
+    search_buscape_by_keyword,
+    search_all,
     )
 
 
@@ -41,7 +41,7 @@ def get_search_buscape_by_keyword():
     return jsonify(results)
 
 
-@app.route('/searchall', methods=['GET'])
+@app.route('/search_all_by_category', methods=['GET'])
 def search():
     category = request.args.get('category')
     keyword = request.args.get('keyword')
@@ -49,5 +49,11 @@ def search():
     return jsonify(results)
 
 
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, port=5000)

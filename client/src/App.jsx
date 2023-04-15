@@ -2,25 +2,41 @@ import { useState } from 'react'
 import WebBtn from './components/WebBtn';
 import CategoryBtn from './components/CategoryBtn';
 import SearchForm from './components/SearchForm';
+import InputSearch from './components/InputSearch';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
+
 function App() {
+  const [site, setSite] = useState(null); 
+  const [category, setCategory] = useState(null);
+
+  const handleSiteChange = (site) => {
+    setSite(site);
+  };
+
+  const handleCategoryChange = (category) => {
+    setCategory(category);
+  };
 
   return (
     <div className="App">
       <h1>Raspa Web</h1>
       <div className='SearchCard'>
-        <WebBtn />
-        <CategoryBtn />
+        <WebBtn onSelect={handleSiteChange} />
+        <CategoryBtn onSelect={handleCategoryChange} />
       </div>
-      <SearchForm />
+      <div className='inpSearch'>
+      <InputSearch />
+      </div>
+      <SearchForm site={site} category={category} />
       <p className="read-the-docs">
-        Selecione um filtro para iniciar a pesquisa
+        Selecione um filtro para iniciar ou alterar a pesquisa
       </p>
     </div>
   )
 }
 
-export default App
+export default App;
