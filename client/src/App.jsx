@@ -4,14 +4,13 @@ import CategoryBtn from './components/CategoryBtn';
 import SearchForm from './components/SearchForm';
 import InputSearch from './components/InputSearch';
 
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
-
 
 function App() {
   const [site, setSite] = useState(null); 
   const [category, setCategory] = useState(null);
+  const [keyword, setKeyword] = useState(null);
 
   const handleSiteChange = (site) => {
     setSite(site);
@@ -19,6 +18,10 @@ function App() {
 
   const handleCategoryChange = (category) => {
     setCategory(category);
+  };
+
+  const handleKeywordChange = (keyword) => {
+    setKeyword(keyword);
   };
 
   return (
@@ -29,9 +32,9 @@ function App() {
         <CategoryBtn onSelect={handleCategoryChange} />
       </div>
       <div className='inpSearch'>
-      <InputSearch />
+      <InputSearch onKeywordChange={handleKeywordChange} />
       </div>
-      <SearchForm site={site} category={category} />
+      <SearchForm site={site} category={category} keyword={keyword}  />
       <p className="read-the-docs">
         Selecione um filtro para iniciar ou alterar a pesquisa
       </p>

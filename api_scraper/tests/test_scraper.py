@@ -1,9 +1,9 @@
-from api_scraper.scraper import  (
-    search_mercadolivre_by_category, 
-    search_buscape_by_category, 
-    search_mercadolivre_by_keyword, 
-    search_buscape_by_keyword, 
-    search_all, 
+from api_scraper.scraper import (
+    search_mercadolivre_by_category,
+    search_buscape_by_category,
+    search_mercadolivre_by_keyword,
+    search_buscape_by_keyword,
+    search_all,
     )
 
 import re
