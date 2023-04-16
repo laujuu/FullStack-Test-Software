@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import defaultImage from '../assets/defaultImage.png';
+import Button from 'react-bootstrap/Button';
 
 function SearchForm({ category, site, keyword }) {
   const [results, setResults] = useState([]);
@@ -28,10 +30,20 @@ function SearchForm({ category, site, keyword }) {
     <div>
       {results.map(result => (
         <div key={result.id}>
-          <img src={result.image} alt={result.title} type="image/gif" />
+          {result.image === 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' ?
+            <img src={ defaultImage } alt={ result.title } /> :
+            <img src={ result.image } alt={ result.title } />
+          }
           <h2>{result.title}</h2>
           <p>{result.description}</p>
           <p>Preço: {result.price}</p>
+          <Button 
+          href={result.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          variant="success"
+          >Ir a web</Button>
+          <hr />
         </div>
       ))}
     </div>
