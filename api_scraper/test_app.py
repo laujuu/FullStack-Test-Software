@@ -34,7 +34,6 @@ def test_search_buscape_keyword(client):
 
 
 def test_search_all(client):
-    response = client.get('/searchall?category=celular&keyword=iphone')
+    response = client.get('/search_all_by_category?category=celular&keyword=iphone')
     assert response.status_code == 200
     assert len(response.json) > 0
-

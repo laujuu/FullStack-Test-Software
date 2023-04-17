@@ -5,3 +5,5 @@ pytest-mock==3.5.1
 pytest-json==0.4.0
 parsel==1.7.0
 requests==2.24.0
+beautifulsoup4==4.12.2
+Flask==2.2.3
